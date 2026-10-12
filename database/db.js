@@ -1,34 +1,52 @@
-const sqlite3 = require('sqlite3').verbose();
-const path = require('path');
+const mysql = require('mysql2');
 
-const dbPath = path.resolve(__dirname, 'novaenergyco.db');
+const pool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT || 3306,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+});
 
-const db = new sqlite3.Database(dbPath, (err) => {
+// Test de connexion et création des tables
+pool.getConnection((err, connection) => {
     if (err) {
-        console.error('Erreur lors de la connexion à la base de données:', err.message);
-    } else {
-        console.log('Connecté à la base de données SQLite.');
+        console.error('Erreur de connexion à MySQL:', err.message);
+        return;
     }
+    console.log('Connecté à la base de données MySQL.');
+
+    const createContactsTable = `
+        CREATE TABLE IF NOT EXISTS contacts (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            nom VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL,
+            telephone VARCHAR(50),
+            service VARCHAR(255),
+            message TEXT,
+            date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    `;
+
+    const createBrochureTable = `
+        CREATE TABLE IF NOT EXISTS brochure_leads (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            email VARCHAR(255) NOT NULL,
+            date_telechargement TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    `;
+
+    connection.query(createContactsTable, (err) => {
+        if (err) console.error('Erreur création table contacts:', err.message);
+    });
+    connection.query(createBrochureTable, (err) => {
+        if (err) console.error('Erreur création table brochure_leads:', err.message);
+    });
+
+    connection.release();
 });
 
-db.serialize(() => {
-    // Table existante pour les contacts
-    db.run(`CREATE TABLE IF NOT EXISTS contacts (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        nom TEXT NOT NULL,
-        email TEXT NOT NULL,
-        telephone TEXT,
-        service TEXT,
-        message TEXT,
-        date_creation DATETIME DEFAULT CURRENT_TIMESTAMP
-    )`);
-
-    // NOUVELLE TABLE pour les téléchargements de PDF
-    db.run(`CREATE TABLE IF NOT EXISTS brochure_leads (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        email TEXT NOT NULL,
-        date_telechargement DATETIME DEFAULT CURRENT_TIMESTAMP
-    )`);
-});
-
-module.exports = db;
+module.exports = pool;

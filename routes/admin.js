@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../database/db');
 
-// Middleware de vérification du mot de passe
 const checkAuth = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     const adminPassword = process.env.ADMIN_PASSWORD || 'NovaEnergyCo2026!';
@@ -14,7 +13,6 @@ const checkAuth = (req, res, next) => {
     }
 };
 
-// Route de connexion (vérifie le mot de passe)
 router.post('/login', (req, res) => {
     const { password } = req.body;
     const adminPassword = process.env.ADMIN_PASSWORD || 'NovaEnergyCo2026!';
@@ -26,9 +24,8 @@ router.post('/login', (req, res) => {
     }
 });
 
-// Récupérer tous les contacts
 router.get('/contacts', checkAuth, (req, res) => {
-    db.all("SELECT * FROM contacts ORDER BY date_creation DESC", [], (err, rows) => {
+    db.query("SELECT * FROM contacts ORDER BY date_creation DESC", (err, rows) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }
@@ -36,9 +33,8 @@ router.get('/contacts', checkAuth, (req, res) => {
     });
 });
 
-// Récupérer tous les téléchargements de brochure
 router.get('/downloads', checkAuth, (req, res) => {
-    db.all("SELECT * FROM brochure_leads ORDER BY date_telechargement DESC", [], (err, rows) => {
+    db.query("SELECT * FROM brochure_leads ORDER BY date_telechargement DESC", (err, rows) => {
         if (err) {
             return res.status(500).json({ error: err.message });
         }
@@ -46,17 +42,15 @@ router.get('/downloads', checkAuth, (req, res) => {
     });
 });
 
-// Supprimer un contact
 router.delete('/contacts/:id', checkAuth, (req, res) => {
-    db.run("DELETE FROM contacts WHERE id = ?", [req.params.id], function(err) {
+    db.query("DELETE FROM contacts WHERE id = ?", [req.params.id], function(err) {
         if (err) return res.status(500).json({ error: err.message });
         res.json({ success: true });
     });
 });
 
-// Supprimer un téléchargement
 router.delete('/downloads/:id', checkAuth, (req, res) => {
-    db.run("DELETE FROM brochure_leads WHERE id = ?", [req.params.id], function(err) {
+    db.query("DELETE FROM brochure_leads WHERE id = ?", [req.params.id], function(err) {
         if (err) return res.status(500).json({ error: err.message });
         res.json({ success: true });
     });
