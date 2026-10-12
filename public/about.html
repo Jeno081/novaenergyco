@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO de base -->
+    <title>À Propos | NovaEnergyCo SARL</title>
+    <meta name="description" content="Découvrez l'histoire, la mission et les valeurs de NovaEnergyCo SARL, votre partenaire en ingénierie et énergie en RDC.">
+    <meta name="keywords" content="NovaEnergyCo, à propos, entreprise RDC, ingénierie Congo, énergie Kinshasa">
+    <meta name="author" content="NovaEnergyCo SARL">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.novaenergyco.com/about.html">
+    
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.novaenergyco.com/about.html">
+    <meta property="og:title" content="À Propos | NovaEnergyCo SARL">
+    <meta property="og:description" content="Découvrez l'histoire, la mission et les valeurs de NovaEnergyCo SARL.">
+    <meta property="og:image" content="https://www.novaenergyco.com/images/logo.png">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="À Propos | NovaEnergyCo SARL">
+    <meta name="twitter:description" content="Notre histoire, notre mission et nos valeurs.">
+    <meta name="twitter:image" content="https://www.novaenergyco.com/images/logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <a href="index.html"><img src="images/NovaEnergyCo.png" alt="NovaEnergyCo SARL" class="logo-img"></a>
+            </div>
+            
+            <!-- Navigation Desktop -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">À Propos</a></li>
+                    <li><a href="services.html" data-i18n="nav_services">Nos Services</a></li>
+                    <li><a href="invest.html" data-i18n="nav_invest">Investir en RDC</a></li>
+                    <li class="lang-switch">
+                        <button id="btn-fr" onclick="setLanguage('fr')" class="active">FR</button>
+                        <span>|</span>
+                        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+                    </li>
+                    <li><a href="contact.html" class="btn-cta" data-i18n="nav_cta">Demander un Devis</a></li>
+                </ul>
+            </nav>
+
+            <!-- Bouton Hamburger Mobile -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+        <a href="index.html" data-i18n="nav_home">Accueil</a>
+        <a href="about.html" data-i18n="nav_about">À Propos</a>
+        <a href="services.html" data-i18n="nav_services">Nos Services</a>
+        <a href="invest.html" data-i18n="nav_invest">Investir en RDC</a>
+        <a href="contact.html" class="btn-cta" data-i18n="nav_cta">Demander un Devis</a>
+        <div class="lang-switch-mobile">
+            <button id="btn-fr-mobile" onclick="setLanguage('fr')" class="active">FR</button>
+            <button id="btn-en-mobile" onclick="setLanguage('en')">EN</button>
+        </div>
+    </div>
+
+    <section class="page-banner">
+        <div class="container">
+            <h1 data-i18n="about_page_title">À Propos de NovaEnergyCo</h1>
+            <p data-i18n="about_page_subtitle">Notre histoire, notre mission et nos valeurs</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2 data-i18n="about_history_title">Notre Histoire</h2>
+                <p data-i18n="about_history_desc1">NovaEnergyCo SARL est née de la volonté de doter la République Démocratique du Congo d'un acteur local capable de répondre aux standards internationaux dans les secteurs de l'énergie, des mines et du BTP.</p>
+                <p data-i18n="about_history_desc2">Depuis notre création, nous accompagnons les entreprises locales et internationales dans la conception, l'exécution et la maintenance de leurs projets industriels.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Notre histoire">
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section bg-light">
+        <div class="container">
+            <h2 class="section-title" data-i18n="about_values_title">Notre Mission & Nos Valeurs</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <h3 data-i18n="value1_title">Notre Mission</h3>
+                    <p data-i18n="value1_desc">Fournir des solutions industrielles et énergétiques fiables, durables et conformes aux normes internationales.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fa-solid fa-eye"></i>
+                    <h3 data-i18n="value2_title">Notre Vision</h3>
+                    <p data-i18n="value2_desc">Devenir le partenaire de référence en RDC pour les projets d'ingénierie et d'énergie à fort impact.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    <h3 data-i18n="value3_title">Nos Valeurs</h3>
+                    <p data-i18n="value3_desc">Intégrité, excellence, sécurité, respect de l'environnement et engagement envers nos clients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="about_team_title">Notre Équipe</h2>
+            <p class="section-subtitle" data-i18n="about_team_subtitle">Des experts passionnés au service de vos projets</p>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Directeur Général">
+                    <div class="team-card-info">
+                        <h3>Jean Mukendi</h3>
+                        <p data-i18n="team_role1">Directeur Général</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Directrice Technique">
+                    <div class="team-card-info">
+                        <h3>Marie Kabongo</h3>
+                        <p data-i18n="team_role2">Directrice Technique</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Responsable QHSE">
+                    <div class="team-card-info">
+                        <h3>Patrick Ilunga</h3>
+                        <p data-i18n="team_role3">Responsable QHSE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 data-i18n="cta_title">Prêt à collaborer avec nous ?</h2>
+            <p data-i18n="cta_desc">Contactez notre équipe pour discuter de votre projet.</p>
+            <a href="contact.html" class="btn btn-primary" data-i18n="cta_btn">Nous contacter</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <img src="images/NovaEnergyCo.png" alt="NovaEnergyCo SARL" class="footer-logo">
+                <p><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer_location">Kinshasa, RDC</span></p>
+                <p><i class="fa-solid fa-envelope"></i> contact@novaenergyco.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/novaenergyco" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/novaenergyco" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/novaenergyco" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NovaEnergyCo SARL. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+    <!-- ================= BOUTON WHATSAPP FLOTTANT ================= -->
+    <a href="https://wa.me/243983095105?text=Bonjour%20NovaEnergyCo%2C%20je%20souhaite%20discuter%20d'un%20projet." 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Contactez-nous sur WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</body>
+</html>

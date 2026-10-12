@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO de base -->
+    <title>Contact | NovaEnergyCo SARL</title>
+    <meta name="description" content="Contactez NovaEnergyCo SARL à Kinshasa pour vos projets d'ingénierie, d'énergie et d'investissement en RDC. Demandez un devis ou planifiez un rendez-vous.">
+    <meta name="keywords" content="contact NovaEnergyCo, devis ingénierie, Kinshasa RDC, rendez-vous énergie">
+    <meta name="author" content="NovaEnergyCo SARL">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.novaenergyco.com/contact.html">
+    
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.novaenergyco.com/contact.html">
+    <meta property="og:title" content="Contact | NovaEnergyCo SARL">
+    <meta property="og:description" content="Contactez notre équipe pour discuter de votre projet en RDC.">
+    <meta property="og:image" content="https://www.novaenergyco.com/images/logo.png">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact | NovaEnergyCo SARL">
+    <meta name="twitter:description" content="Notre équipe vous répondra dans les plus brefs délais.">
+    <meta name="twitter:image" content="https://www.novaenergyco.com/images/logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <a href="index.html"><img src="images/NovaEnergyCo.png" alt="NovaEnergyCo SARL" class="logo-img"></a>
+            </div>
+            
+            <!-- Navigation Desktop -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">À Propos</a></li>
+                    <li><a href="services.html" data-i18n="nav_services">Nos Services</a></li>
+                    <li><a href="invest.html" data-i18n="nav_invest">Investir en RDC</a></li>
+                    <li class="lang-switch">
+                        <button id="btn-fr" onclick="setLanguage('fr')" class="active">FR</button>
+                        <span>|</span>
+                        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+                    </li>
+                    <li><a href="contact.html" class="btn-cta" data-i18n="nav_cta">Demander un Devis</a></li>
+                </ul>
+            </nav>
+
+            <!-- Bouton Hamburger Mobile -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+        <a href="index.html" data-i18n="nav_home">Accueil</a>
+        <a href="about.html" data-i18n="nav_about">À Propos</a>
+        <a href="services.html" data-i18n="nav_services">Nos Services</a>
+        <a href="invest.html" data-i18n="nav_invest">Investir en RDC</a>
+        <a href="contact.html" class="btn-cta" data-i18n="nav_cta">Demander un Devis</a>
+        <div class="lang-switch-mobile">
+            <button id="btn-fr-mobile" onclick="setLanguage('fr')" class="active">FR</button>
+            <button id="btn-en-mobile" onclick="setLanguage('en')">EN</button>
+        </div>
+    </div>
+
+    <section class="page-banner">
+        <div class="container">
+            <h1 data-i18n="contact_page_title">Contactez-nous</h1>
+            <p data-i18n="contact_page_subtitle">Notre équipe vous répondra dans les plus brefs délais</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container contact-layout">
+            <div class="contact-info">
+                <h2 data-i18n="contact_info_title">Nos Coordonnées</h2>
+                <div class="contact-info-item"><i class="fa-solid fa-location-dot"></i><div><h4 data-i18n="contact_address_title">Adresse</h4><p>Kinshasa, RDC</p></div></div>
+                <div class="contact-info-item"><i class="fa-solid fa-phone"></i><div><h4 data-i18n="contact_phone_title">Téléphone</h4><p>+243 812 345 678</p></div></div>
+                <div class="contact-info-item"><i class="fa-solid fa-envelope"></i><div><h4 data-i18n="contact_email_title">Email</h4><p>contact@novaenergyco.com</p></div></div>
+                <div class="contact-info-item"><i class="fa-solid fa-clock"></i><div><h4 data-i18n="contact_hours_title">Horaires</h4><p data-i18n="contact_hours_desc">Lun - Ven : 8h00 - 17h00</p></div></div>
+            </div>
+            <div class="contact-form-wrapper">
+                <h2 data-i18n="contact_form_title">Envoyez-nous un message</h2>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group"><label for="nom" data-i18n="form_name">Nom / Société</label><input type="text" id="nom" name="nom" required placeholder="Ex: Jean Dupont"></div>
+                    <div class="form-group"><label for="email" data-i18n="form_email">Adresse E-mail</label><input type="email" id="email" name="email" required placeholder="Ex: contact@entreprise.com"></div>
+                    <div class="form-group"><label for="telephone" data-i18n="form_phone">Téléphone</label><input type="tel" id="telephone" name="telephone" placeholder="Ex: +243 812 345 678"></div>
+                    <div class="form-group">
+                        <label for="service" data-i18n="form_service">Service concerné</label>
+                        <select id="service" name="service" required>
+                            <option value="" data-i18n="form_option_default">-- Choisissez un service --</option>
+                            <option value="Ingénierie" data-i18n="form_option1">Ingénierie & Projets</option>
+                            <option value="Audit" data-i18n="form_option2">Audit & Conseil</option>
+                            <option value="Formation" data-i18n="form_option3">Formation</option>
+                            <option value="Représentation B2B" data-i18n="form_option4">Représentation B2B</option>
+                            <option value="Autre" data-i18n="form_option5">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group"><label for="message" data-i18n="form_message">Message</label><textarea id="message" name="message" rows="5" required placeholder="Décrivez votre projet..."></textarea></div>
+                    <button type="submit" class="btn btn-primary btn-block" data-i18n="form_submit">Envoyer ma demande</button>
+                    <div id="form-response" class="form-response"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <img src="images/NovaEnergyCo.png" alt="NovaEnergyCo SARL" class="footer-logo">
+                <p><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer_location">Kinshasa, RDC</span></p>
+                <p><i class="fa-solid fa-envelope"></i> contact@novaenergyco.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/novaenergyco" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/novaenergyco" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/novaenergyco" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NovaEnergyCo SARL. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+    <!-- ================= BOUTON WHATSAPP FLOTTANT ================= -->
+    <a href="https://wa.me/243983095105?text=Bonjour%20NovaEnergyCo%2C%20je%20souhaite%20discuter%20d'un%20projet." 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Contactez-nous sur WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</body>
+</html>

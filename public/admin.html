@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord Admin | NovaEnergyCo SARL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #1a2744; }
+
+        /* LOGIN */
+        .login-screen { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        .login-box { background: white; padding: 48px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); width: 100%; max-width: 420px; }
+        .login-box h1 { text-align: center; margin-bottom: 8px; font-size: 1.5rem; }
+        .login-box p { text-align: center; color: #64748b; margin-bottom: 32px; }
+        .login-box input { width: 100%; padding: 14px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; margin-bottom: 16px; }
+        .login-box input:focus { outline: none; border-color: #0ea5e9; }
+        .login-box button { width: 100%; padding: 14px; background: #0f172a; color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+        .login-box button:hover { background: #1e293b; }
+        .login-error { color: #ef4444; text-align: center; margin-top: 12px; font-size: 0.9rem; }
+
+        /* DASHBOARD */
+        .dashboard { display: none; min-height: 100vh; }
+        .dashboard.active { display: block; }
+
+        .admin-header { background: #0f172a; color: white; padding: 20px 0; }
+        .admin-header-content { width: 90%; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .admin-header h1 { font-size: 1.3rem; }
+        .admin-header h1 span { color: #84cc16; }
+        .logout-btn { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 0.9rem; }
+        .logout-btn:hover { background: rgba(255,255,255,0.2); }
+
+        .admin-content { width: 90%; max-width: 1400px; margin: 40px auto; }
+
+        /* STATS */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .stat-card { background: white; padding: 28px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid #0ea5e9; }
+        .stat-card i { font-size: 1.8rem; color: #0ea5e9; margin-bottom: 12px; }
+        .stat-card h3 { font-size: 2rem; margin-bottom: 4px; }
+        .stat-card p { color: #64748b; font-size: 0.9rem; }
+
+        /* TABLES */
+        .table-section { background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 32px; overflow: hidden; }
+        .table-header { display: flex; justify-content: space-between; align-items: center; padding: 24px 28px; border-bottom: 1px solid #e2e8f0; flex-wrap: wrap; gap: 12px; }
+        .table-header h2 { font-size: 1.2rem; }
+        .table-header h2 i { color: #0ea5e9; margin-right: 8px; }
+        .export-btn { background: #84cc16; color: #0f172a; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 0.85rem; }
+        .export-btn:hover { background: #65a30d; }
+
+        table { width: 100%; border-collapse: collapse; }
+        thead { background: #f8fafc; }
+        th { text-align: left; padding: 16px 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #64748b; font-weight: 600; }
+        td { padding: 16px 20px; border-top: 1px solid #f1f5f9; font-size: 0.9rem; }
+        tr:hover td { background: #f8fafc; }
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; background: #e0f2fe; color: #0284c7; }
+        .delete-btn { background: #fee2e2; color: #ef4444; border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; }
+        .delete-btn:hover { background: #fecaca; }
+        .empty-msg { text-align: center; padding: 40px; color: #94a3b8; }
+
+        .table-wrapper { overflow-x: auto; }
+
+        @media (max-width: 768px) {
+            .admin-header-content { flex-direction: column; text-align: center; }
+            .admin-content { margin: 20px auto; }
+            th, td { padding: 12px 14px; font-size: 0.85rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ÉCRAN DE CONNEXION -->
+    <div class="login-screen" id="login-screen">
+        <div class="login-box">
+            <h1>🔐 Espace Admin</h1>
+            <p>NovaEnergyCo SARL</p>
+            <form id="login-form">
+                <input type="password" id="admin-password" placeholder="Entrez le mot de passe" required>
+                <button type="submit">Se connecter</button>
+                <div class="login-error" id="login-error"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TABLEAU DE BORD -->
+    <div class="dashboard" id="dashboard">
+        <div class="admin-header">
+            <div class="admin-header-content">
+                <h1>Tableau de Bord <span>Admin</span></h1>
+                <button class="logout-btn" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</button>
+            </div>
+        </div>
+
+        <div class="admin-content">
+            <!-- Statistiques -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <h3 id="stat-contacts">0</h3>
+                    <p>Messages de contact</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <h3 id="stat-downloads">0</h3>
+                    <p>Téléchargements de brochure</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fa-solid fa-calendar-day"></i>
+                    <h3 id="stat-today">0</h3>
+                    <p>Activités aujourd'hui</p>
+                </div>
+            </div>
+
+            <!-- Table Contacts -->
+            <div class="table-section">
+                <div class="table-header">
+                    <h2><i class="fa-solid fa-envelope"></i> Messages de Contact</h2>
+                    <button class="export-btn" onclick="exportCSV('contacts')"><i class="fa-solid fa-download"></i> Exporter CSV</button>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Service</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="contacts-table"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Table Téléchargements -->
+            <div class="table-section">
+                <div class="table-header">
+                    <h2><i class="fa-solid fa-file-pdf"></i> Téléchargements de Brochure</h2>
+                    <button class="export-btn" onclick="exportCSV('downloads')"><i class="fa-solid fa-download"></i> Exporter CSV</button>
+                </div>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Date de téléchargement</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="downloads-table"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let authToken = null;
+        let contactsData = [];
+        let downloadsData = [];
+
+        // --- CONNEXION ---
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const password = document.getElementById('admin-password').value;
+            const errorDiv = document.getElementById('login-error');
+
+            try {
+                const response = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password })
+                });
+                const result = await response.json();
+
+                if (response.ok) {
+                    authToken = result.token;
+                    sessionStorage.setItem('adminToken', authToken);
+                    showDashboard();
+                } else {
+                    errorDiv.textContent = result.error;
+                }
+            } catch (error) {
+                errorDiv.textContent = 'Erreur de connexion au serveur.';
+            }
+        });
+
+        // --- AFFICHER LE DASHBOARD ---
+        function showDashboard() {
+            document.getElementById('login-screen').style.display = 'none';
+            document.getElementById('dashboard').classList.add('active');
+            loadData();
+        }
+
+        // --- VÉRIFIER LA SESSION AU CHARGEMENT ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedToken = sessionStorage.getItem('adminToken');
+            if (savedToken) {
+                authToken = savedToken;
+                showDashboard();
+            }
+        });
+
+        // --- CHARGER LES DONNÉES ---
+        async function loadData() {
+            try {
+                const headers = { 'Authorization': authToken };
+
+                const [contactsRes, downloadsRes] = await Promise.all([
+                    fetch('/api/admin/contacts', { headers }),
+                    fetch('/api/admin/downloads', { headers })
+                ]);
+
+                if (contactsRes.status === 401 || downloadsRes.status === 401) {
+                    logout();
+                    return;
+                }
+
+                contactsData = await contactsRes.json();
+                downloadsData = await downloadsRes.json();
+
+                renderContacts();
+                renderDownloads();
+                updateStats();
+            } catch (error) {
+                console.error('Erreur:', error);
+            }
+        }
+
+        // --- AFFICHER LES CONTACTS ---
+        function renderContacts() {
+            const tbody = document.getElementById('contacts-table');
+            if (contactsData.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="8" class="empty-msg">Aucun message pour le moment.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = contactsData.map(c => `
+                <tr>
+                    <td>#${c.id}</td>
+                    <td><strong>${escapeHtml(c.nom)}</strong></td>
+                    <td><a href="mailto:${escapeHtml(c.email)}">${escapeHtml(c.email)}</a></td>
+                    <td>${escapeHtml(c.telephone || '-')}</td>
+                    <td><span class="badge">${escapeHtml(c.service || '-')}</span></td>
+                    <td>${escapeHtml(c.message)}</td>
+                    <td>${formatDate(c.date_creation)}</td>
+                    <td><button class="delete-btn" onclick="deleteContact(${c.id})"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+            `).join('');
+        }
+
+        // --- AFFICHER LES TÉLÉCHARGEMENTS ---
+        function renderDownloads() {
+            const tbody = document.getElementById('downloads-table');
+            if (downloadsData.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" class="empty-msg">Aucun téléchargement pour le moment.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = downloadsData.map(d => `
+                <tr>
+                    <td>#${d.id}</td>
+                    <td><a href="mailto:${escapeHtml(d.email)}">${escapeHtml(d.email)}</a></td>
+                    <td>${formatDate(d.date_telechargement)}</td>
+                    <td><button class="delete-btn" onclick="deleteDownload(${d.id})"><i class="fa-solid fa-trash"></i></button></td>
+                </tr>
+            `).join('');
+        }
+
+        // --- STATISTIQUES ---
+        function updateStats() {
+            document.getElementById('stat-contacts').textContent = contactsData.length;
+            document.getElementById('stat-downloads').textContent = downloadsData.length;
+
+            const today = new Date().toISOString().split('T')[0];
+            const todayContacts = contactsData.filter(c => c.date_creation && c.date_creation.startsWith(today)).length;
+            const todayDownloads = downloadsData.filter(d => d.date_telechargement && d.date_telechargement.startsWith(today)).length;
+            document.getElementById('stat-today').textContent = todayContacts + todayDownloads;
+        }
+
+        // --- SUPPRIMER ---
+        async function deleteContact(id) {
+            if (!confirm('Supprimer ce message ?')) return;
+            await fetch(`/api/admin/contacts/${id}`, { method: 'DELETE', headers: { 'Authorization': authToken } });
+            loadData();
+        }
+
+        async function deleteDownload(id) {
+            if (!confirm('Supprimer ce téléchargement ?')) return;
+            await fetch(`/api/admin/downloads/${id}`, { method: 'DELETE', headers: { 'Authorization': authToken } });
+            loadData();
+        }
+
+        // --- EXPORT CSV ---
+        function exportCSV(type) {
+            const data = type === 'contacts' ? contactsData : downloadsData;
+            if (data.length === 0) { alert('Aucune donnée à exporter.'); return; }
+
+            const headers = Object.keys(data[0]);
+            const csvRows = [headers.join(',')];
+            data.forEach(row => {
+                csvRows.push(headers.map(h => `"${(row[h] || '').toString().replace(/"/g, '""')}"`).join(','));
+            });
+
+            const blob = new Blob(['\uFEFF' + csvRows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `novaenergyco_${type}_${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // --- DÉCONNEXION ---
+        function logout() {
+            authToken = null;
+            sessionStorage.removeItem('adminToken');
+            document.getElementById('dashboard').classList.remove('active');
+            document.getElementById('login-screen').style.display = 'flex';
+            document.getElementById('admin-password').value = '';
+        }
+
+        // --- UTILITAIRES ---
+        function escapeHtml(str) {
+            if (!str) return '';
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function formatDate(dateStr) {
+            if (!dateStr) return '-';
+            const date = new Date(dateStr);
+            return date.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+        }
+    </script>
+</body>
+</html>

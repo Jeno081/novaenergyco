@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO de base -->
+    <title>NovaEnergyCo SARL | Ingénierie, Énergie & Performance en RDC</title>
+    <meta name="description" content="NovaEnergyCo SARL : votre partenaire stratégique en ingénierie, énergie, QHSE et solutions industrielles en RDC. Conseil, audit, formation et facilitation d'investissements.">
+    <meta name="keywords" content="ingénierie RDC, énergie Kinshasa, pétrole RDC, QHSE, audit, formation, investissement RDC, BTP Congo">
+    <meta name="author" content="NovaEnergyCo SARL">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.novaenergyco.com/">
+    
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.novaenergyco.com/">
+    <meta property="og:title" content="NovaEnergyCo SARL | Ingénierie, Énergie & Performance en RDC">
+    <meta property="og:description" content="Votre partenaire stratégique en ingénierie, énergie et solutions industrielles en République Démocratique du Congo.">
+    <meta property="og:image" content="https://www.novaenergyco.com/images/logo.png">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NovaEnergyCo SARL | Ingénierie, Énergie & Performance en RDC">
+    <meta name="twitter:description" content="Votre partenaire stratégique en ingénierie, énergie et solutions industrielles en RDC.">
+    <meta name="twitter:image" content="https://www.novaenergyco.com/images/logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Données structurées (Google Rich Results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NovaEnergyCo SARL",
+      "url": "https://www.novaenergyco.com",
+      "logo": "https://www.novaenergyco.com/images/logo.png",
+      "description": "Ingénierie, énergie et solutions industrielles en RDC.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kinshasa",
+        "addressCountry": "CD"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+243812345678",
+        "contactType": "customer service",
+        "email": "contact@novaenergyco.com"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/novaenergyco",
+        "https://www.facebook.com/novaenergyco",
+        "https://www.instagram.com/novaenergyco"
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- ================= EN-TÊTE ================= -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <a href="index.html"><img src="images/NovaEnergyCo.png" alt="NovaEnergyCo SARL" class="logo-img"></a>
+            </div>
+            
+            <!-- Navigation Desktop -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">À Propos</a></li>
+                    <li><a href="services.html" data-i18n="nav_services">Nos Services</a></li>
+                    <li><a href="invest.html" data-i18n="nav_invest">Investir en RDC</a></li>
+                    <li class="lang-switch">
+                        <button id="btn-fr" onclick="setLanguage('fr')" class="active">FR</button>
+                        <span>|</span>
+                        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+                    </li>
+                    <li><a href="contact.html" class="btn-cta" data-i18n="nav_cta">Demander un Devis</a></li>
+                </ul>
+            </nav>
+
+            <!-- Bouton Hamburger Mobile -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <!-- Menu Mobile Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+        <a href="index.html" data-i18n="nav_home">Accueil</a>
+        <a href="about.html" data-i18n="nav_about">À Propos</a>
+        <a href="services.html" data-i18n="nav_services">Nos Services</a>
+        <a href="invest.html" data-i18n="nav_invest">Investir en RDC</a>
+        <a href="contact.html" class="btn-cta" data-i18n="nav_cta">Demander un Devis</a>
+        <div class="lang-switch-mobile">
+            <button id="btn-fr-mobile" onclick="setLanguage('fr')" class="active">FR</button>
+            <button id="btn-en-mobile" onclick="setLanguage('en')">EN</button>
+        </div>
+    </div>
+
+    <!-- ================= HERO AVEC CARROUSEL ================= -->
+    <section class="hero">
+        <div class="carousel-container">
+            <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h2 data-i18n="hero_title">Votre Partenaire Stratégique en Ingénierie, Énergie et Solutions Industrielles en RDC.</h2>
+            <p data-i18n="hero_subtitle">De la gestion de projets pétroliers et renouvelables aux études de performance et de conformité QHSE, NovaEnergyCo accompagne le développement des acteurs majeurs de l'industrie.</p>
+            <div class="hero-buttons">
+                <a href="services.html" class="btn btn-primary" data-i18n="hero_btn1">Découvrir nos expertises</a>
+                <a href="contact.html" class="btn btn-secondary" data-i18n="hero_btn2">Planifier un rendez-vous</a>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </section>
+
+    <!-- ================= BANDEAU DE CONFIANCE ================= -->
+    <section class="trust-banner">
+        <div class="container trust-grid">
+            <div class="trust-item"><i class="fa-solid fa-check-circle"></i><h3 data-i18n="trust_1_title">+100%</h3><p data-i18n="trust_1_desc">Conformité QHSE</p></div>
+            <div class="trust-item"><i class="fa-solid fa-industry"></i><h3 data-i18n="trust_2_title">Multi-Secteurs</h3><p data-i18n="trust_2_desc">Pétrole, Mines, BTP, Énergie</p></div>
+            <div class="trust-item"><i class="fa-solid fa-handshake"></i><h3 data-i18n="trust_3_title">Sur Mesure</h3><p data-i18n="trust_3_desc">Du Conseil à l'Exécution</p></div>
+            <div class="trust-item"><i class="fa-solid fa-globe"></i><h3 data-i18n="trust_4_title">RDC & International</h3><p data-i18n="trust_4_desc">Ancrage local, standards mondiaux</p></div>
+        </div>
+    </section>
+
+    <!-- ================= À PROPOS ================= -->
+    <section class="about">
+        <div class="container about-container">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Équipe NovaEnergyCo">
+            </div>
+            <div class="about-text">
+                <h2 data-i18n="about_title">À Propos de NovaEnergyCo</h2>
+                <p data-i18n="about_desc1">NovaEnergyCo SARL est une entreprise congolaise spécialisée dans l'ingénierie, l'énergie et les solutions industrielles. Nous accompagnons les acteurs majeurs du secteur pétrolier, minier et BTP en RDC.</p>
+                <p data-i18n="about_desc2">Notre approche "clé en main" vous garantit un interlocuteur unique pour la conception, l'exécution et la maintenance de vos projets.</p>
+                <a href="about.html" class="btn btn-primary" data-i18n="about_btn">En savoir plus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= GALERIE D'EXPERTISES ================= -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="gallery_title">Nos Solutions en Images</h2>
+            <p class="section-subtitle" data-i18n="gallery_subtitle">Découvrez nos domaines d'intervention à travers nos plaquettes thématiques.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="images/p6.jpeg" alt="Implantation et Conseil en RDC">
+                    <div class="gallery-overlay">
+                        <h3 data-i18n="gallery_1_title">Implantation & Conseil</h3>
+                        <p data-i18n="gallery_1_desc">Votre passerelle vers la RDC</p>
+                        <span class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i> Voir détails</span>
+                    </div>
+                </div>
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="images/p4.jpeg" alt="BTP, Ingénierie et AMO">
+                    <div class="gallery-overlay">
+                        <h3 data-i18n="gallery_2_title">BTP & Ingénierie</h3>
+                        <p data-i18n="gallery_2_desc">Construire avec méthode, livrer avec maîtrise</p>
+                        <span class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i> Voir détails</span>
+                    </div>
+                </div>
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="images/p3.jpg" alt="Formation et Performance">
+                    <div class="gallery-overlay">
+                        <h3 data-i18n="gallery_3_title">Formation & Performance</h3>
+                        <p data-i18n="gallery_3_desc">Les compétences au service de la performance</p>
+                        <span class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i> Voir détails</span>
+                    </div>
+                </div>
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="images/p4.jpg" alt="Projets Photovoltaïques">
+                    <div class="gallery-overlay">
+                        <h3 data-i18n="gallery_4_title">Énergie Solaire</h3>
+                        <p data-i18n="gallery_4_desc">Accélérez votre transition énergétique</p>
+                        <span class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i> Voir détails</span>
+                    </div>
+                </div>
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="images/p5.jpg" alt="Cuves, Dépôts et Métrologie">
+                    <div class="gallery-overlay">
+                        <h3 data-i18n="gallery_5_title">Métrologie & Dépôts</h3>
+                        <p data-i18n="gallery_5_desc">Mesurez. Contrôlez. Optimisez.</p>
+                        <span class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i> Voir détails</span>
+                    </div>
+                </div>
+                <div class="gallery-card" onclick="openLightbox(this)">
+                    <img src="images/p6.jpg" alt="Produits Pétroliers">
+                    <div class="gallery-overlay">
+                        <h3 data-i18n="gallery_6_title">Produits Pétroliers</h3>
+                        <p data-i18n="gallery_6_desc">Énergie fiable pour vos opérations</p>
+                        <span class="gallery-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i> Voir détails</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= TÉLÉCHARGEMENT BROCHURE ================= -->
+    <section class="download-section">
+        <div class="container download-container">
+            <div class="download-text">
+                <h2 data-i18n="download_title">Découvrez notre plaquette d'entreprise</h2>
+                <p data-i18n="download_desc">Téléchargez notre brochure PDF pour en savoir plus sur nos expertises, nos réalisations et notre vision pour la RDC.</p>
+            </div>
+            <div class="download-form">
+                <form id="download-form">
+                    <input type="email" id="download-email" data-i18n-placeholder="download_placeholder" placeholder="Entrez votre email professionnel" required>
+                    <button type="submit" class="btn btn-primary" data-i18n="download_btn">Télécharger le PDF</button>
+                </form>
+                <div id="download-response" class="form-response"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SERVICES (APERÇU) ================= -->
+    <section class="services">
+        <div class="container">
+            <h2 class="section-title" data-i18n="services_title">Nos Pôles d'Expertise</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon-wrapper"><i class="fa-solid fa-oil-well"></i></div>
+                    <h3 data-i18n="srv1_title">Ingénierie & Projets Énergétiques</h3>
+                    <p data-i18n="srv1_desc">Conception et gestion de dépôts pétroliers, stations-services et centrales hybrides.</p>
+                    <a href="services.html" class="btn-link" data-i18n="srv_link">En savoir plus →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon-wrapper"><i class="fa-solid fa-boxes-stacked"></i></div>
+                    <h3 data-i18n="srv2_title">Management Opérationnel & Stocks</h3>
+                    <p data-i18n="srv2_desc">Gestion intégrée et sécurisée des stocks pétroliers pour les secteurs minier, industriel et BTP.</p>
+                    <a href="services.html" class="btn-link" data-i18n="srv_link">En savoir plus →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon-wrapper"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 data-i18n="srv3_title">Audit, Business Analysis & Conseil</h3>
+                    <p data-i18n="srv3_desc">Audit comptable, financier et opérationnel. Études économiques et optimisation des processus.</p>
+                    <a href="services.html" class="btn-link" data-i18n="srv_link">En savoir plus →</a>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="services.html" class="btn btn-primary" data-i18n="view_all_services">Voir tous nos services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= INVESTIR EN RDC ================= -->
+    <section class="invest-section">
+        <div class="container invest-container">
+            <h2 data-i18n="invest_title">Vous souhaitez vous implanter ou investir en RDC ?</h2>
+            <p data-i18n="invest_desc">NovaEnergyCo agit comme votre partenaire local et représentant commercial. Nous facilitons vos démarches administratives, juridiques et réglementaires pour garantir la réussite de vos projets industriels et énergétiques.</p>
+            <a href="invest.html" class="btn btn-primary" data-i18n="invest_btn">En savoir plus</a>
+        </div>
+    </section>
+
+    <!-- ================= PIED DE PAGE SIMPLIFIÉ ================= -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <img src="images/NovaEnergyCo.png" alt="NovaEnergyCo SARL" class="footer-logo">
+                <p><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer_location">Kinshasa, RDC</span></p>
+                <p><i class="fa-solid fa-envelope"></i> contact@novaenergyco.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/novaenergyco" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/novaenergyco" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/novaenergyco" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NovaEnergyCo SARL. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img src="" alt="Détails" id="lightbox-img">
+    </div>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+    <!-- ================= BOUTON WHATSAPP FLOTTANT ================= -->
+    <a href="https://wa.me/243983095105?text=Bonjour%20NovaEnergyCo%2C%20je%20souhaite%20discuter%20d'un%20projet." 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Contactez-nous sur WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</body>
+</html>

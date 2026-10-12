@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO de base -->
+    <title>Nos Services | NovaEnergyCo SARL</title>
+    <meta name="description" content="Ingénierie, audit, QHSE, formation, digitalisation et facilitation d'investissements en RDC. Découvrez nos pôles d'expertise.">
+    <meta name="keywords" content="services ingénierie, audit RDC, QHSE, formation professionnelle, digitalisation, investissement Congo">
+    <meta name="author" content="NovaEnergyCo SARL">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.novaenergyco.com/services.html">
+    
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.novaenergyco.com/services.html">
+    <meta property="og:title" content="Nos Services | NovaEnergyCo SARL">
+    <meta property="og:description" content="Découvrez nos 6 pôles d'expertise pour vos projets industriels et énergétiques en RDC.">
+    <meta property="og:image" content="https://www.novaenergyco.com/images/logo.png">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nos Services | NovaEnergyCo SARL">
+    <meta name="twitter:description" content="Des solutions complètes pour vos projets industriels et énergétiques.">
+    <meta name="twitter:image" content="https://www.novaenergyco.com/images/logo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <a href="index.html"><img src="images/NovaEnergyCo.png" alt="NovaEnergyCo SARL" class="logo-img"></a>
+            </div>
+            
+            <!-- Navigation Desktop -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">À Propos</a></li>
+                    <li><a href="services.html" data-i18n="nav_services">Nos Services</a></li>
+                    <li><a href="invest.html" data-i18n="nav_invest">Investir en RDC</a></li>
+                    <li class="lang-switch">
+                        <button id="btn-fr" onclick="setLanguage('fr')" class="active">FR</button>
+                        <span>|</span>
+                        <button id="btn-en" onclick="setLanguage('en')">EN</button>
+                    </li>
+                    <li><a href="contact.html" class="btn-cta" data-i18n="nav_cta">Demander un Devis</a></li>
+                </ul>
+            </nav>
+
+            <!-- Bouton Hamburger Mobile -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <button class="mobile-nav-close" id="mobile-nav-close">&times;</button>
+        <a href="index.html" data-i18n="nav_home">Accueil</a>
+        <a href="about.html" data-i18n="nav_about">À Propos</a>
+        <a href="services.html" data-i18n="nav_services">Nos Services</a>
+        <a href="invest.html" data-i18n="nav_invest">Investir en RDC</a>
+        <a href="contact.html" class="btn-cta" data-i18n="nav_cta">Demander un Devis</a>
+        <div class="lang-switch-mobile">
+            <button id="btn-fr-mobile" onclick="setLanguage('fr')" class="active">FR</button>
+            <button id="btn-en-mobile" onclick="setLanguage('en')">EN</button>
+        </div>
+    </div>
+
+    <section class="page-banner">
+        <div class="container">
+            <h1 data-i18n="services_page_title">Nos Pôles d'Expertise</h1>
+            <p data-i18n="services_page_subtitle">Des solutions complètes pour vos projets industriels et énergétiques</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="services-grid-full">
+                <div class="service-detail-card">
+                    <div class="service-detail-header"><i class="fa-solid fa-oil-well"></i><h3 data-i18n="srv1_title">Ingénierie & Projets Énergétiques</h3></div>
+                    <p data-i18n="srv1_full_desc">Conception, élaboration, suivi et gestion de dépôts pétroliers/gaziers, stations-services et centrales hybrides (Solaire & Éolien). Travaux de Génie Civil, structures métalliques et aménagement de chantiers.</p>
+                    <ul>
+                        <li data-i18n="srv1_point1">Études de faisabilité et d'ingénierie</li>
+                        <li data-i18n="srv1_point2">Gestion de projets clé en main</li>
+                        <li data-i18n="srv1_point3">Construction d'infrastructures énergétiques</li>
+                    </ul>
+                </div>
+                <div class="service-detail-card">
+                    <div class="service-detail-header"><i class="fa-solid fa-boxes-stacked"></i><h3 data-i18n="srv2_title">Management Opérationnel & Stocks</h3></div>
+                    <p data-i18n="srv2_full_desc">Gestion intégrée et sécurisée des stocks pétroliers pour les secteurs minier, industriel et BTP. Gestion déléguée ou partielle de stations-services, dépôts et infrastructures énergétiques.</p>
+                    <ul>
+                        <li data-i18n="srv2_point1">Audit et optimisation des stocks</li>
+                        <li data-i18n="srv2_point2">Gestion logistique et approvisionnement</li>
+                        <li data-i18n="srv2_point3">Contrôle qualité et traçabilité</li>
+                    </ul>
+                </div>
+                <div class="service-detail-card">
+                    <div class="service-detail-header"><i class="fa-solid fa-chart-line"></i><h3 data-i18n="srv3_title">Audit, Business Analysis & Conseil</h3></div>
+                    <p data-i18n="srv3_full_desc">Audit comptable, financier et opérationnel dédié aux secteurs pétrolier, gazier et commercial. Études économiques, analyse de performance et optimisation des processus d'affaires.</p>
+                    <ul>
+                        <li data-i18n="srv3_point1">Audit interne et externe</li>
+                        <li data-i18n="srv3_point2">Analyse financière et stratégique</li>
+                        <li data-i18n="srv3_point3">Optimisation des processus métiers</li>
+                    </ul>
+                </div>
+                <div class="service-detail-card">
+                    <div class="service-detail-header"><i class="fa-solid fa-leaf"></i><h3 data-i18n="srv4_title">QHSE, Environnement & Dépollution</h3></div>
+                    <p data-i18n="srv4_full_desc">Études d'impact environnemental et social (EIES) et audits de conformité. Nettoyage technique, détoxification de sites industriels et entretien professionnel.</p>
+                    <ul>
+                        <li data-i18n="srv4_point1">Études d'impact environnemental</li>
+                        <li data-i18n="srv4_point2">Audits QHSE et conformité</li>
+                        <li data-i18n="srv4_point3">Dépollution et réhabilitation de sites</li>
+                    </ul>
+                </div>
+                <div class="service-detail-card">
+                    <div class="service-detail-header"><i class="fa-solid fa-graduation-cap"></i><h3 data-i18n="srv5_title">Formation & Capital Humain</h3></div>
+                    <p data-i18n="srv5_full_desc">Centre de formation spécialisé (Énergie, BTP, IT, Économie, QHSE). Placement professionnel de talents et mise à disposition de personnel qualifié.</p>
+                    <ul>
+                        <li data-i18n="srv5_point1">Formations techniques et certifiantes</li>
+                        <li data-i18n="srv5_point2">Recrutement et placement de talents</li>
+                        <li data-i18n="srv5_point3">Mise à disposition de personnel</li>
+                    </ul>
+                </div>
+                <div class="service-detail-card">
+                    <div class="service-detail-header"><i class="fa-solid fa-laptop-code"></i><h3 data-i18n="srv6_title">Digitalisation & IT</h3></div>
+                    <p data-i18n="srv6_full_desc">Développement web, logiciels métiers et solutions informatiques performantes. Accompagnement juridique, réglementaire et administratif pour les investisseurs en RDC.</p>
+                    <ul>
+                        <li data-i18n="srv6_point1">Développement de solutions digitales</li>
+                        <li data-i18n="srv6_point2">Conseil en transformation digitale</li>
+                        <li data-i18n="srv6_point3">Accompagnement des investisseurs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 data-i18n="cta_title">Prêt à collaborer avec nous ?</h2>
+            <p data-i18n="cta_desc">Contactez notre équipe pour discuter de votre projet.</p>
+            <a href="contact.html" class="btn btn-primary" data-i18n="cta_btn">Demander un devis</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-left">
+                <img src="images/NovaEnergyCo.png" alt="NovaEnergyCo SARL" class="footer-logo">
+                <p><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer_location">Kinshasa, RDC</span></p>
+                <p><i class="fa-solid fa-envelope"></i> contact@novaenergyco.com</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/novaenergyco" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.facebook.com/novaenergyco" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/novaenergyco" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NovaEnergyCo SARL. <span data-i18n="footer_rights">Tous droits réservés.</span></p>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script src="js/script.js"></script>
+    <!-- ================= BOUTON WHATSAPP FLOTTANT ================= -->
+    <a href="https://wa.me/243983095105?text=Bonjour%20NovaEnergyCo%2C%20je%20souhaite%20discuter%20d'un%20projet." 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Contactez-nous sur WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+</body>
+</html>
